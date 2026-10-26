@@ -9,8 +9,6 @@ os.chdir("/system/apps/badge-cycler")
 class BadgeInstance:
     
     def __init__(self, json_dict):
-        
-
         screen.antialias = screen.X2
 
         # details to be shown on the card
@@ -29,30 +27,22 @@ class BadgeInstance:
        
 info_font = font.load("/system/assets/fonts/MonaSans-Medium.af")
 name_font = font.load("/system/assets/fonts/DynaPuff-Medium.af")
+
+# Get a dictionary badges based on the json file.
 with open("badge_profiles.json") as f:
     data_from_file = json.load(f)
 f.close()
-
 badge_dict = OrderedDict((i["id_name"], BadgeInstance(i)) for i in data_from_file["badges"])
 
 screen.antialias = screen.X2
-CX = screen.width / 2
-CY = screen.height / 2
 index = 0
-flip = False
-flip_start = 0
-rear_view = False
-card_pos = (10, 10)
 current_badge = list(badge_dict.values())[0]
-index = 0
-
 
 def init():
     pass
 
 def on_exit():
     pass
-
 
 def update():
     global badge_dict, current_badge, index, name_font, info_font
@@ -130,19 +120,5 @@ def update():
     if badge.pressed(BUTTON_UP) and index < len(badge_dict) - 1:    
       index += 1
       current_badge = list(badge_dict.values())[index]
-
-
-def cycle_badges(badge_dict):
-    update(list(badge_dict.values())[0])
-    while True:
-        #if badge.pressed(BUTTON_DOWN) and index > 0:
-        if badge.pressed(BUTTON_DOWN):
-            index -= 1
-            update(list(badge_dict.values())[0])
-
-        #if badge.pressed(BUTTON_UP) and index < len(badge_dict):
-        if badge.pressed(BUTTON_UP):    
-            index += 1
-            update(list(badge_dict.values())[1])
 
 run(update)
