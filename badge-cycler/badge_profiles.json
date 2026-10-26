@@ -1,0 +1,35 @@
+{
+"badges": [
+        {
+        "id_photo": "",
+        "id_name": "Alice",
+        "id_title": "ID 1",
+        "background_color": [4,7,35],
+        "header_text_color": [255,255,255],
+        "value_1": "Discord: @TestAccount"
+		"value_2": "Bsky: @TestAccount"
+		"value_3": "She / Her"
+        },
+        {
+        "id_photo": "",
+        "id_name": "Bob",
+        "id_title": "ID 2",
+        "background_color": [131,137,150],
+        "header_text_color": [5,5,5],
+        "value_1": "Discord: @TestAccount"
+		"value_2": "Bsky: @TestAccount"
+		"value_3": "He / Him"
+        },
+        {
+        "id_photo": "",
+        "id_name": "Eve",
+        "id_title": "ID 3",
+        "background_color": [231,161,176],
+        "header_text_color": [5,5,5],
+        "value_1": "Discord: @TestAccount"
+		"value_2": "Bsky: @TestAccount"
+		"value_3": "She / Her"
+        }
+        ]
+}
+
