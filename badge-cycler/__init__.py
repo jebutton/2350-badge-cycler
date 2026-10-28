@@ -2,7 +2,6 @@ import sys
 import os
 import json
 from collections import OrderedDict
-from turtle import color
 sys.path.insert(0, "/system/apps/badge-cycler")
 os.chdir("/system/apps/badge-cycler")
 
@@ -49,6 +48,15 @@ def correct_mode():
     if mode not in ["A", "B"]:
         mode = ["A"]
 
+def mode_a_name_display_size(text):
+    header_text_size = 25
+    text_length = len(text)
+    if text_length > 10:
+        extra_length = len(text[10:text_length])
+        return (header_text_size - (extra_length * 2 ) - 2)
+    else:
+        return header_text_size
+        
 def init():
     pass
 
@@ -65,8 +73,9 @@ def display_mode_a():
     screen.clear()
     header_height = 54
     header_text_x = 56
-    header_text_y = 12
-    header_text_size = 25
+    header_text_y = 0
+    name_text_bounds = rect(header_text_x, header_text_y, screen.width - header_text_x, header_height)
+    #header_text_size = 25
     
     info_height = 16
     info_start_x = 0
@@ -90,13 +99,12 @@ def display_mode_a():
     screen.pen = name_text_color
     picture_x = 2
     picture_y = 2
-    picture_size = 50
     
     # Draw Icon
     screen.blit(current_badge.id_photo_small, vec2(picture_x, picture_y))
     
     # Display Badge Name
-    screen.text(current_badge.id_name, header_text_x , header_text_y,header_text_size)
+    screen.text(current_badge.id_name, name_text_bounds, mode_a_name_display_size(current_badge.id_name), align=(image.LEFT, image.MIDDLE))
     
     # BG for socials / title
     screen.pen = white
