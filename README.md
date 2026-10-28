@@ -25,7 +25,7 @@ Every line accepts ASCII strings except for *background_color* and *header_text_
 - *header_text_color* is the font color for the text that is in the lines covered by *background_color*.
 
 To add an avatar, it must be done as follows:
-1. Resize / Reformat the image to a 50px x 50px png.
+1. Resize / Reformat the image to a 100px x 100px png.
 2. Place the image in */badge-cycler/avatars/*
 3. Edit the *id_photo* value in that identity's JSON entry to have the format: *"/system/apps/badge-cycler/assets/avatars/name_of_avatar_file.png"*  
 
@@ -33,3 +33,5 @@ After you create a new identity, repeat steps 2-5 of the Instructions for first 
 
 ## How to use the app
 Once you've launched the app from the device's built in OS, you can navigate through your identities by using the up and down buttons.
+
+New: Use the "A" and "B" Buttons to switch between the original passport-like mode to a simplified mode with just the name and a larger avatar.
