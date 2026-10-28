@@ -53,7 +53,10 @@ def mode_a_name_display_size(text):
     text_length = len(text)
     if text_length > 10:
         extra_length = len(text[10:text_length])
-        return (header_text_size - (extra_length * 2 ) - 2)
+        new_length = (header_text_size - (extra_length * 2 ) - 2)
+        if new_length < 5:
+            new_length = 5
+        return new_length
     else:
         return header_text_size
         
